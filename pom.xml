@@ -7,7 +7,7 @@
     <artifactId>Minim1</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>Minim1</name>
+    <name>UsersManager</name>
 
     <dependencyManagement>
         <dependencies>
@@ -43,7 +43,7 @@
             <artifactId>jersey-container-grizzly2-servlet</artifactId>
         </dependency>
 
-         <dependency>
+        <dependency>
             <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-moxy</artifactId>
         </dependency>
@@ -75,8 +75,8 @@
                 <version>2.5.1</version>
                 <inherited>true</inherited>
                 <configuration>
-                    <source>11</source>
-                    <target>11</target>
+                    <source>8</source>
+                    <target>8</target>
                 </configuration>
             </plugin>
             <plugin>

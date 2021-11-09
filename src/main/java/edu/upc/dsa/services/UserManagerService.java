@@ -15,7 +15,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-@Api(value = "/User", description = "Users by its points")
+@Api(value = "/User", description = "End point to User Service")
 @Path("/User")
 public class UserManagerService {
     private UserManager manager;
@@ -67,6 +67,29 @@ public class UserManagerService {
         this.manager.addUser(user);
         return Response.status(201).build();
     }
+
+
+    @GET
+    @ApiOperation(value = "Get certain user", notes = "Additional information.")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successful", response = User.class, responseContainer="List"),
+            @ApiResponse(code = 404, message= "ERRROR")
+    })
+
+    @Path("/getUser/{idUser}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getUser(@PathParam("idUser") String idUser){
+        if (this.manager.getUser(idUser) != null){
+            User user = this.manager.getUser(idUser);
+            return Response.status(201).entity(user).build();
+        }
+        else{
+            return Response.status(404).build();
+        }
+    }
+
+
+
 
 
 }
