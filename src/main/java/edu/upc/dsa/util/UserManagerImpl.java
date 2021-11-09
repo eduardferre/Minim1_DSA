@@ -59,23 +59,10 @@ public class UserManagerImpl implements UserManager {
     }
 
     @Override
-    public int informUserPass(User user, Point point) { //0 si no ha pasado, 1 si ha pasado
-        logger.info("Buscando si usuario: " + user.getIdUser() + " ha pasado por el punto con id: " + point.getIdPoint());
-
-        List<Point> listPointsUser = user.getListPointsUser();
-        int found = 0; //si lo encuentra se pone 1
-
-        for (Point p : listPointsUser) {
-            if (Objects.equals(p.getIdPoint(), point.getIdPoint())) {
-                found = 1;
-                break;
-            }
-        }
-
-        if (found == 0) { logger.info("El usuario no ha pasado por el punto"); }
-        else { logger.info("El usuario ha pasado por el punto"); }
-
-        return found;
+    public void informUserPass(User user, Point point) { //0 si no ha pasado, 1 si ha pasado
+        logger.info("El usuario: " + user.getIdUser() + " ha pasado por el punto: " + point.getIdPoint());
+        user.addPoint(point);
+        logger.info("El punto ha sido añadido correctamente");
     }
 
     @Override
@@ -85,12 +72,17 @@ public class UserManagerImpl implements UserManager {
     }
 
     @Override
-    public ListUsers getUsersByPoint(Point point, ListUsers listUsers) {
+    public ListUsers getUsersByPoint(Point point) {
         return null;
     }
 
     @Override
     public ListUsers getUsersMaxPoints(ListUsers listUsers) {
+        return null;
+    }
+
+    @Override
+    public Point getIdPoint(String idPoint) {
         return null;
     }
 

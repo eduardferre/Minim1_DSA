@@ -68,6 +68,7 @@ public class UserManagerService {
         return Response.status(201).build();
     }
 
+    //----------------------------------------------
 
     @GET
     @ApiOperation(value = "Get certain user", notes = "Additional information.")
@@ -88,7 +89,43 @@ public class UserManagerService {
         }
     }
 
+    //----------------------------------------------
 
+
+    /*@POST
+    @ApiOperation(value = "A user passed a point", notes = "Additional information.")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successfully info.")
+    })
+    @Path("/informByPoint")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response informUserPass (User user, Point point) {
+        this.manager.informUserPass(user, point);
+        return Response.status(201).build();
+    }*/
+
+
+    //----------------------------------------------
+
+
+    /*@GET
+    @ApiOperation(value = "Get users by point", notes = "Additional information.")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successful", response = Point.class, responseContainer="List"),
+            @ApiResponse(code = 404, message= "ERRROR")
+    })
+
+    @Path("/getUsersByPoint/{idPoint}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getPointUser(@PathParam("idPoint") String idPoint){
+        if (this.manager.getUsersByPoint(manager.getPoint(idPoint)) != null){
+            User user = this.manager.getUsersByPoint(manager.getPoint(idPoint));
+            return Response.status(201).entity(user).build();
+        }
+        else{
+            return Response.status(404).build();
+        }
+    }*/
 
 
 

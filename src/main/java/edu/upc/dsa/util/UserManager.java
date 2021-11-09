@@ -12,11 +12,12 @@ public interface UserManager {
     void addUser (User user);
     HashMap getUsersByAlphabet ();
     User getUser (String idUser);
-    int informUserPass (User user, Point point);
+    void informUserPass (User user, Point point);
     List<Point> getPointsUser (User user);
-    ListUsers getUsersByPoint (Point point, ListUsers listUsers);
+    ListUsers getUsersByPoint (Point point);
     ListUsers getUsersMaxPoints (ListUsers listUsers);
 
+    Point getIdPoint (String idPoint);
     int numUsers();
 
 }
